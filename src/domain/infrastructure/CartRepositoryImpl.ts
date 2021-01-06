@@ -1,13 +1,29 @@
-import {Cart} from '../entities/Cart';
 import {CartRepository} from '../entities/CartRepository';
+import {Cart} from '../entities/Cart';
 import Config from 'react-native-config';
 
 interface CartDTO {
   id: string;
-  products: [];
+  products: [
+    {
+      id: string;
+      quantity: number;
+    },
+  ];
 }
 
 export class CartRepositoryImpl implements CartRepository {
+  async GetCartById(id: string): Promise<Cart> {
+    const response = await fetch(Config.API_URL + 'cart/' + id, {
+      method: 'GET',
+    });
+    const json: CartDTO = await response.json();
+    return {
+      id: json.id,
+      products: json.products,
+    };
+  }
+
   async CreateCart(): Promise<Cart> {
     const response = await fetch(Config.API_URL + 'cart', {
       method: 'POST',
@@ -19,11 +35,16 @@ export class CartRepositoryImpl implements CartRepository {
     };
   }
 
-  /*async AddToCart(cart: Cart, product: Product): Promise<void> {
-
+  async AddToCart(cartId: string, productId: string): Promise<void> {
+    const response = await fetch(Config.API_URL + 'cart/' + cartId, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        productId: productId,
+      }),
+    });
   }
-  
-  async GetCartById(id: string): Promise<Cart> {
-
-  }*/
 }

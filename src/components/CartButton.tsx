@@ -1,6 +1,6 @@
-import React, {ReactComponentElement} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Button, Icon, Badge, withBadge} from 'react-native-elements';
+import {Button, Icon, Badge} from 'react-native-elements';
 
 type CartButtonProps = {
   numItems: number;
@@ -8,14 +8,9 @@ type CartButtonProps = {
 };
 
 const CartButton = ({numItems, onPress}: CartButtonProps) => {
-  const BadgedButton = withBadge(1, {
-    right: 0,
-    hidden: numItems < 1,
-  })(Button);
-
   return (
     <View style={styles.buttonWrapper}>
-      <BadgedButton
+      <Button
         onPress={() => onPress}
         icon={
           <Icon
@@ -27,6 +22,13 @@ const CartButton = ({numItems, onPress}: CartButtonProps) => {
         }
         buttonStyle={styles.buttonStyle}
       />
+      {numItems > 0 && (
+        <Badge
+          status="error"
+          value={numItems}
+          containerStyle={{position: 'absolute', top: 0, right: -4}}
+        />
+      )}
     </View>
   );
 };

@@ -9,7 +9,8 @@ const RootContainer = () => {
   const cartId = useSelector((state: RootState) => state.cart.id);
   const appLoading = useSelector(
     (state: RootState) =>
-      state.cart.fetching === 'idle' || state.cart.fetching === 'pending',
+      state.cart.creatingCart === 'idle' ||
+      state.cart.creatingCart === 'pending',
   );
 
   const dispatch = useDispatch();

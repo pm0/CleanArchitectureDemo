@@ -7,9 +7,10 @@ import ProductItem from './ProductItem';
 type ProductListProps = {
   products: Product[];
   fetching: FetchingStatus;
+  onAddProduct: (id: string) => void;
 };
 
-const ProductsList = ({products, fetching}: ProductListProps) => {
+const ProductsList = ({products, fetching, onAddProduct}: ProductListProps) => {
   if (fetching === 'idle' || fetching === 'pending') {
     return (
       <View>
@@ -21,7 +22,10 @@ const ProductsList = ({products, fetching}: ProductListProps) => {
       <FlatList
         data={products}
         renderItem={(product) => (
-          <ProductItem product={product.item} onAdd={() => {}} />
+          <ProductItem
+            product={product.item}
+            onAdd={() => onAddProduct(product.item.id)}
+          />
         )}
       />
     );

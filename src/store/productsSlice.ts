@@ -9,7 +9,7 @@ const productService = new ProductServiceImpl(productRepo);
 
 export const fetchProducts = createAsyncThunk(
   'products/fetch',
-  async (thunkAPI) => {
+  async (data, thunkAPI) => {
     const products = await productService.GetProducts();
     return products;
   },
