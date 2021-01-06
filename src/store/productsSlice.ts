@@ -2,24 +2,26 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {Product} from '../domain/entities/Product';
 import {ProductRepositoryImpl} from '../domain/infrastructure/ProductRepositoryImpl';
 import {ProductServiceImpl} from '../domain/useCases/ProductService';
+import {FetchingStatus} from '../types';
+
+const productRepo = new ProductRepositoryImpl();
+const productService = new ProductServiceImpl(productRepo);
 
 export const fetchProducts = createAsyncThunk(
   'products/fetch',
   async (thunkAPI) => {
-    const productRepo = new ProductRepositoryImpl();
-    const productService = new ProductServiceImpl(productRepo);
     const products = await productService.GetProducts();
     return products;
   },
 );
 
 interface ProductsState {
-  products: Product[];
-  fetching: 'idle' | 'pending' | 'succeeded' | 'failed';
+  productsList: Product[];
+  fetching: FetchingStatus;
 }
 
 const initialState = {
-  products: [],
+  productsList: [],
   fetching: 'idle',
 } as ProductsState;
 
@@ -29,11 +31,11 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state, action) => {
-      state.products = [];
+      state.productsList = [];
       state.fetching = 'pending';
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.products = action.payload;
+      state.productsList = action.payload;
       state.fetching = 'succeeded';
     });
     builder.addCase(fetchProducts.rejected, (state, action) => {

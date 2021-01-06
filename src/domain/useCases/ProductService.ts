@@ -8,8 +8,8 @@ export interface ProductService {
 export class ProductServiceImpl implements ProductService {
   ProductRepo: ProductRepository;
 
-  constructor(pr: ProductRepository) {
-    this.ProductRepo = pr;
+  constructor(productRepo: ProductRepository) {
+    this.ProductRepo = productRepo;
   }
 
   async GetProducts(): Promise<Product[]> {
