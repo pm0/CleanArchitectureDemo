@@ -28,6 +28,7 @@
     "@types/react-native": "^0.63.43",
     "@types/react-test-renderer": "^17.0.0",
     "babel-jest": "25.5.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "6.8.0",
     "jest": "25.5.4",
     "metro-react-native-babel-preset": "0.59.0",

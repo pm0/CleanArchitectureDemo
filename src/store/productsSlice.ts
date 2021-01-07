@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Product} from '../domain/entities/Product';
-import {ProductRepositoryImpl} from '../domain/infrastructure/ProductRepositoryImpl';
-import {ProductServiceImpl} from '../domain/useCases/ProductService';
-import {FetchingStatus} from '../types';
+import {Product} from 'domain/entities/Product';
+import {ProductRepositoryImpl} from 'domain/infrastructure/ProductRepositoryImpl';
+import {ProductServiceImpl} from 'domain/useCases/ProductService';
+import {FetchingStatus} from 'types';
 
 const productRepo = new ProductRepositoryImpl();
 const productService = new ProductServiceImpl(productRepo);

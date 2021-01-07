@@ -1,6 +1,5 @@
-import {CartRepository} from '../entities/CartRepository';
-import {Cart} from '../entities/Cart';
-import {Product} from '../entities/Product';
+import {Cart} from 'domain/entities/Cart';
+import {CartRepository} from 'domain/entities/CartRepository';
 
 export interface CartService {
   GetCartById(id: string): Promise<Cart>;
@@ -19,11 +18,11 @@ export class CartServiceImpl implements CartService {
     return this.CartRepo.GetCartById(id);
   }
 
-  async CreateCart(): Promise<Cart> {
+  CreateCart(): Promise<Cart> {
     return this.CartRepo.CreateCart();
   }
 
-  async AddToCart(cartId: string, productId: string): Promise<void> {
+  AddToCart(cartId: string, productId: string): Promise<void> {
     return this.CartRepo.AddToCart(cartId, productId);
   }
 }

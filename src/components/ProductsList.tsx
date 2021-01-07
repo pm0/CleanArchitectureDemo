@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, FlatList, Text} from 'react-native';
-import {Product} from '../domain/entities/Product';
-import {FetchingStatus} from '../types';
-import ProductItem from './ProductItem';
+import {Product} from 'domain/entities/Product';
+import {FetchingStatus} from 'types';
+import ProductItem from 'components/ProductItem';
 
 type ProductListProps = {
   products: Product[];

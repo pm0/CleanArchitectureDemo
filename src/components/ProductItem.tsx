@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {Button, Icon} from 'react-native-elements';
-import {Product} from '../domain/entities/Product';
+import {Product} from 'domain/entities/Product';
 
 type ProductItemProps = {
   product: Product;

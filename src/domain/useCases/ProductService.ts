@@ -1,5 +1,5 @@
-import {Product} from '../entities/Product';
-import {ProductRepository} from '../entities/ProductRepository';
+import {Product} from 'domain/entities/Product';
+import {ProductRepository} from 'domain/entities/ProductRepository';
 
 export interface ProductService {
   GetProducts(): Promise<Product[]>;

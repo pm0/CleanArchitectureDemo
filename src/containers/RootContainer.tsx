@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {RootState} from '../store';
-import {createCart} from '../store/cartSlice';
-import LoadingOverlay from '../components/LoadingOverlay';
-import MainView from '../components/MainView';
+import {RootState} from 'store';
+import {createCart} from 'store/cartSlice';
+import LoadingOverlay from 'components/LoadingOverlay';
+import MainView from 'components/MainView';
 
 const RootContainer = () => {
   const cartId = useSelector((state: RootState) => state.cart.id);

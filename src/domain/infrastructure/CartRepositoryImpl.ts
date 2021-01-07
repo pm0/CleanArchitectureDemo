@@ -1,5 +1,5 @@
-import {CartRepository} from '../entities/CartRepository';
-import {Cart} from '../entities/Cart';
+import {Cart} from 'domain/entities/Cart';
+import {CartRepository} from 'domain/entities/CartRepository';
 import Config from 'react-native-config';
 
 interface CartDTO {

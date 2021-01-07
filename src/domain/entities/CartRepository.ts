@@ -1,4 +1,4 @@
-import {Cart} from './Cart';
+import {Cart} from 'domain/entities/Cart';
 
 export interface CartRepository {
   GetCartById(id: string): Promise<Cart>;

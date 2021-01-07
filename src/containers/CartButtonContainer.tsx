@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import CartButton from '../components/CartButton';
-import {RootState} from '../store';
+import CartButton from 'components/CartButton';
+import {RootState} from 'store';
 
 const CartButtonContainer = () => {
   const productsInCart = useSelector((state: RootState) => state.cart.products);

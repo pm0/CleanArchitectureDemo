@@ -1,5 +1,5 @@
-import {Product} from '../entities/Product';
-import {ProductRepository} from '../entities/ProductRepository';
+import {Product} from 'domain/entities/Product';
+import {ProductRepository} from 'domain/entities/ProductRepository';
 import Config from 'react-native-config';
 
 interface ProductDTO {

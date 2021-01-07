@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from './store';
-import RootContainer from './containers/RootContainer';
+import store from 'store';
+import RootContainer from 'containers/RootContainer';
 
 const App = () => {
   return (

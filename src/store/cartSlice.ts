@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {CartProduct} from '../domain/entities/Cart';
-import {CartRepositoryImpl} from '../domain/infrastructure/CartRepositoryImpl';
-import {CartServiceImpl} from '../domain/useCases/CartService';
-import {FetchingStatus} from '../types';
-import {RootState} from './index';
+import {CartProduct} from 'domain/entities/Cart';
+import {CartRepositoryImpl} from 'domain/infrastructure/CartRepositoryImpl';
+import {CartServiceImpl} from 'domain/useCases/CartService';
+import {FetchingStatus} from 'types';
+import {RootState} from 'store';
 
 const cartRepo = new CartRepositoryImpl();
 const cartService = new CartServiceImpl(cartRepo);

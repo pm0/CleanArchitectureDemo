@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
-import ProductsListContainer from '../containers/ProductsListContainer';
-import CartButtonContainer from '../containers/CartButtonContainer';
+import ProductsListContainer from 'containers/ProductsListContainer';
+import CartButtonContainer from 'containers/CartButtonContainer';
 
 const MainView = () => {
   return (
