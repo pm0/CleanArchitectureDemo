@@ -1,16 +1,16 @@
-import {Cart} from 'domain/entities/Cart';
+import {CartNormalized} from 'domain/entities/Cart';
 import {CartRepository} from 'domain/entities/CartRepository';
 
-let carts: Cart[] = [];
+let carts: CartNormalized[] = [];
 
 export class CartRepositoryMemory implements CartRepository {
-  async GetCartById(id: string): Promise<Cart> {
+  async GetCartById(id: string): Promise<CartNormalized> {
     const cart = carts.find((c) => c.id === id);
     return cart!;
   }
 
-  async CreateCart(): Promise<Cart> {
-    let newCart: Cart = {
+  async CreateCart(): Promise<CartNormalized> {
+    let newCart: CartNormalized = {
       id: 'a-new-random-id',
       products: [],
     };

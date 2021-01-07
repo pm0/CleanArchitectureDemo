@@ -1,9 +1,23 @@
-export interface CartProduct {
-  id: string;
-  quantity: number;
-}
+import {ProductId, Product} from 'domain/entities/product';
 
-export interface Cart {
-  id: string;
+export type CartId = string;
+
+export type CartProductNormalized = {
+  id: ProductId;
+  quantity: number;
+};
+
+export type CartNormalized = {
+  id: CartId;
+  products: CartProductNormalized[];
+};
+
+export type CartProduct = {
+  product: Product;
+  quantity: number;
+};
+
+export type Cart = {
+  id: CartId;
   products: CartProduct[];
-}
+};

@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {ToastAndroid} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from 'store';
-import {fetchProducts} from 'store/productsSlice';
-import {addToCart} from 'store/cartSlice';
+import {fetchProducts} from 'store/slices/productsSlice';
+import {addToCart} from 'store/slices/cartSlice';
 import ProductsList from 'components/ProductsList';
 
 const ProductsListContainer = () => {

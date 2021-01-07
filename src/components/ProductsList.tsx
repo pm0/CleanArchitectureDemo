@@ -4,13 +4,17 @@ import {Product} from 'domain/entities/Product';
 import {FetchingStatus} from 'types';
 import ProductItem from 'components/ProductItem';
 
-type ProductListProps = {
+type ProductsListProps = {
   products: Product[];
   fetching: FetchingStatus;
   onAddProduct: (id: string) => void;
 };
 
-const ProductsList = ({products, fetching, onAddProduct}: ProductListProps) => {
+const ProductsList = ({
+  products,
+  fetching,
+  onAddProduct,
+}: ProductsListProps) => {
   if (fetching === 'idle' || fetching === 'pending') {
     return (
       <View>

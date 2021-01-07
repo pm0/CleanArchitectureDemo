@@ -11,7 +11,7 @@ const CartButton = ({numItems, onPress}: CartButtonProps) => {
   return (
     <View style={styles.buttonWrapper}>
       <Button
-        onPress={() => onPress}
+        onPress={onPress}
         icon={
           <Icon
             name="shopping-cart"

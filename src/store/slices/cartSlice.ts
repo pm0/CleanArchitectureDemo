@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {CartProduct} from 'domain/entities/Cart';
+import {CartProductNormalized, CartId} from 'domain/entities/Cart';
 import {CartRepositoryMemory} from 'domain/infrastructure/CartRepositoryMemory';
 import {CartServiceImpl} from 'domain/useCases/CartService';
 import {FetchingStatus} from 'types';
@@ -35,8 +35,8 @@ export const addToCart = createAsyncThunk(
 );
 
 interface CartState {
-  id: string | null;
-  products: CartProduct[];
+  id: CartId | null;
+  products: CartProductNormalized[];
   fetchingCart: FetchingStatus;
   creatingCart: FetchingStatus;
   addingProduct: FetchingStatus;

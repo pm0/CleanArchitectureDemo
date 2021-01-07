@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
+import {Actions} from 'react-native-router-flux';
 import CartButton from 'components/CartButton';
 import {RootState} from 'store';
 
@@ -12,7 +13,7 @@ const CartButtonContainer = () => {
       }, 0)
     : 0;
 
-  return <CartButton numItems={numItems} onPress={() => {}} />;
+  return <CartButton numItems={numItems} onPress={() => Actions.cart()} />;
 };
 
 export default CartButtonContainer;

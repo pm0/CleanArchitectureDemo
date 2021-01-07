@@ -1,4 +1,4 @@
-import {Cart} from 'domain/entities/Cart';
+import {CartNormalized} from 'domain/entities/Cart';
 import {CartRepository} from 'domain/entities/CartRepository';
 import Config from 'react-native-config';
 
@@ -13,7 +13,7 @@ interface CartDTO {
 }
 
 export class CartRepositoryDB implements CartRepository {
-  async GetCartById(id: string): Promise<Cart> {
+  async GetCartById(id: string): Promise<CartNormalized> {
     const response = await fetch(Config.API_URL + 'cart/' + id, {
       method: 'GET',
     });
@@ -24,7 +24,7 @@ export class CartRepositoryDB implements CartRepository {
     };
   }
 
-  async CreateCart(): Promise<Cart> {
+  async CreateCart(): Promise<CartNormalized> {
     const response = await fetch(Config.API_URL + 'cart', {
       method: 'POST',
     });
