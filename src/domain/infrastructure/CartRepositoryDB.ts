@@ -12,7 +12,7 @@ interface CartDTO {
   ];
 }
 
-export class CartRepositoryImpl implements CartRepository {
+export class CartRepositoryDB implements CartRepository {
   async GetCartById(id: string): Promise<Cart> {
     const response = await fetch(Config.API_URL + 'cart/' + id, {
       method: 'GET',

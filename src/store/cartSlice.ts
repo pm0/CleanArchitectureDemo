@@ -1,11 +1,11 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {CartProduct} from 'domain/entities/Cart';
-import {CartRepositoryImpl} from 'domain/infrastructure/CartRepositoryImpl';
+import {CartRepositoryMemory} from 'domain/infrastructure/CartRepositoryMemory';
 import {CartServiceImpl} from 'domain/useCases/CartService';
 import {FetchingStatus} from 'types';
 import {RootState} from 'store';
 
-const cartRepo = new CartRepositoryImpl();
+const cartRepo = new CartRepositoryMemory(); // Change to CartRepositoryDB to use database implementation
 const cartService = new CartServiceImpl(cartRepo);
 
 export const getCart = createAsyncThunk(

@@ -8,7 +8,7 @@ interface ProductDTO {
   price: number;
 }
 
-export class ProductRepositoryImpl implements ProductRepository {
+export class ProductRepositoryDB implements ProductRepository {
   async GetProducts(): Promise<Product[]> {
     const response = await fetch(Config.API_URL + 'product', {
       method: 'GET',

@@ -1,10 +1,10 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {Product} from 'domain/entities/Product';
-import {ProductRepositoryImpl} from 'domain/infrastructure/ProductRepositoryImpl';
+import {ProductRepositoryMemory} from 'domain/infrastructure/ProductRepositoryMemory';
 import {ProductServiceImpl} from 'domain/useCases/ProductService';
 import {FetchingStatus} from 'types';
 
-const productRepo = new ProductRepositoryImpl();
+const productRepo = new ProductRepositoryMemory(); // Change to ProductRepositoryDB to use database implementation
 const productService = new ProductServiceImpl(productRepo);
 
 export const fetchProducts = createAsyncThunk(
