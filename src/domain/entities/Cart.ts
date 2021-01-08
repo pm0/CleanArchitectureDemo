@@ -2,8 +2,13 @@ import {ProductId, Product} from 'domain/entities/product';
 
 export type CartId = string;
 
-export type CartProductNormalized = {
-  id: ProductId;
+export type Cart = {
+  id: CartId;
+  products: CartProduct[];
+};
+
+export type CartProduct = {
+  product: Product;
   quantity: number;
 };
 
@@ -12,12 +17,7 @@ export type CartNormalized = {
   products: CartProductNormalized[];
 };
 
-export type CartProduct = {
-  product: Product;
+export type CartProductNormalized = {
+  id: ProductId;
   quantity: number;
-};
-
-export type Cart = {
-  id: CartId;
-  products: CartProduct[];
 };
